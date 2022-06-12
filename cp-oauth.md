@@ -40,7 +40,7 @@ listener.name.oauth.oauthbearer.sasl.login.callback.handler.class=io.confluent.k
 This will of course not work, since the requested class does not exist.
 
 We tried setting the property to `null`, but that would end up as an
-empty string, resulting in Kafka trying to instantiate a class without
+empty string, resulting in Kafka trying to instantiate a class without a
 name.
 
 We also tried setting it to

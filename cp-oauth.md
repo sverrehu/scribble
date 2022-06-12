@@ -4,7 +4,7 @@ Hi! We are currently experimenting with [KIP-768: "Extend
 SASL/OAUTHBEARER with Support for
 OIDC"](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=186877575) using the Community Edition of Confluent Platform 7.1.1. For deployment, we use cp-ansible.
 
-The only way I we found to have SASL protocol `OAUTHBEARER` using
+The only way we found to have SASL protocol `OAUTHBEARER` using
 `kafka_broker_custom_listeners`, was to specify `sasl_protocol:
 oauth`, like this:
 
@@ -50,6 +50,6 @@ demands for several other settings for client-side use, which is, as
 we understand it, actually not needed to support client connections.
 
 Now that KIP-768 is out, we suggest either removing the
-Confluent-specific overrides from `filters.py`, or, to be backwars
+Confluent-specific overrides from `filters.py`, or, to be backwards
 compatible, introduce a `sasl_protocol: oauthbearer` that only sets up
 the protocol without filling in the blanks.

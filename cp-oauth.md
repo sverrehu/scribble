@@ -36,3 +36,15 @@ Confluent-proprietary classes, so we end up with this in `server.properties`:
 ```properties
 listener.name.oauth.oauthbearer.sasl.login.callback.handler.class=io.confluent.kafka.server.plugins.auth.token.TokenBearerServerLoginCallbackHandler
 ```
+
+This will of course not work, since the requested class does not exist.
+
+We tried setting it to `null`, but that would end up as an empty
+string, resulting in Kafka trying to instantiate a class without name.
+
+We also tried setting it to
+`org.apache.kafka.common.security.oauthbearer.secured.OAuthBearerLoginCallbackHandler`,
+the KIP-768 equivalent of the Confluent class, but that resulted in
+demands for several other settings for client use, which is, as we
+understand it, actually not needed to support client connections.
+
